@@ -10,6 +10,7 @@ Text Domain: wordpress-twitter-importer
 
 define('WTI_APP_KEY_ID', 'wti_app_key');
 define('WTI_APP_SECRET_ID', 'wti_app_secret');
+define('WTI_TWITTER_QUERY', 'wti_twitter_query');
 define('WTI_PLUGIN_ID', 'wordpress_twitter_importer');
 define('WTI_PLUGIN_NAME', 'Wordpress Twitter Importer');
 define('WTI_OPTIONS_SECTION', 'wti_main');

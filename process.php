@@ -60,10 +60,15 @@ function wti_get_tweet_id($last = true)
 function wti_get_tweets($last = true)
 {
     $options = wti_get_keys();
+
+    if (!$options) {
+        return false;
+    }
+
     $connection = new TwitterOAuth($options[WTI_APP_KEY_ID], $options[WTI_APP_SECRET_ID]);
 
     $args = array(
-        "screen_name" => "charliejackson",
+        "screen_name" => $options[WTI_TWITTER_QUERY],
         'exclude_replies' => true,
         'contributor_details' => true,
         'count' => 200

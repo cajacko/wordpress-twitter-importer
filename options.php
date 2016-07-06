@@ -41,6 +41,7 @@ function wti_admin_init()
     add_settings_section(WTI_OPTIONS_SECTION, WTI_PLUGIN_NAME, 'wti_section_text', WTI_PLUGIN_ID);
     add_settings_field(WTI_APP_KEY_ID, 'App Key', 'wti_key_setting_string', WTI_PLUGIN_ID, WTI_OPTIONS_SECTION);
     add_settings_field(WTI_APP_SECRET_ID, 'App Secret', 'wti_secret_setting_string', WTI_PLUGIN_ID, WTI_OPTIONS_SECTION);
+    add_settings_field(WTI_TWITTER_QUERY, 'Twitter username', 'wti_twitter_query_setting_string', WTI_PLUGIN_ID, WTI_OPTIONS_SECTION);
 }
 
 function wti_section_text()
@@ -60,6 +61,12 @@ function wti_secret_setting_string()
     echo "<input id='" . WTI_APP_SECRET_ID . "' name='" . WTI_OPTIONS_SLUG . "[" . WTI_APP_SECRET_ID . "]' size='40' type='text' value='{$options[WTI_APP_SECRET_ID]}' />";
 }
 
+function wti_twitter_query_setting_string()
+{
+    $options = get_option(WTI_OPTIONS_SLUG);
+    echo "<input id='" . WTI_TWITTER_QUERY . "' name='" . WTI_OPTIONS_SLUG . "[" . WTI_TWITTER_QUERY . "]' size='40' type='text' value='{$options[WTI_TWITTER_QUERY]}' />";
+}
+
 function wti_options_validate($input)
 {
     return $input;
@@ -77,11 +84,19 @@ function wti_get_keys()
         return false;
     }
 
+    if (!isset($options[WTI_TWITTER_QUERY])) {
+        return false;
+    }
+
     if (strlen($options[WTI_APP_KEY_ID]) < 5) {
         return false;
     }
 
     if (strlen($options[WTI_APP_SECRET_ID]) < 5) {
+        return false;
+    }
+
+    if (strlen($options[WTI_TWITTER_QUERY]) < 5) {
         return false;
     }
 
