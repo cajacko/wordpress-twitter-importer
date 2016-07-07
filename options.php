@@ -1,8 +1,8 @@
 <?php
 
-add_action('admin_menu', 'plugin_admin_add_page');
+add_action('admin_menu', 'wti_admin_add_page');
 
-function plugin_admin_add_page()
+function wti_admin_add_page()
 {
     add_options_page(WTI_PLUGIN_NAME, WTI_PLUGIN_NAME, 'manage_options', WTI_PLUGIN_ID, 'wti_options_page');
 }

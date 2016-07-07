@@ -39,7 +39,7 @@ function wti_add_cron_schedule($schedules)
     if (!isset($schedules[WTI_SCHEDULE])) {
         $schedules[WTI_SCHEDULE] = array(
             'interval' => 300,
-            'display'  => esc_html__('Every Five Seconds'),
+            'display'  => esc_html__('Every Five Minutes'),
         );
     }
  

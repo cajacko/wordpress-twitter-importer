@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Wordpress Twitter Importer
-Description: Automatically importer tweets into Wordpress
+Description: Automatically import tweets into Wordpress
 Version:     1.0.0
 Author:      Charlie Jackson
 Author URI:  https://charliejackson.com
